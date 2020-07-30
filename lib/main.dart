@@ -89,7 +89,7 @@ class _MyAppState extends State<MyApp> {
             return supportedLocales.first;
           },
           onGenerateRoute: CustomRouter.generatedRoute,
-          initialRoute: loginRoute,
+          initialRoute: splashScreen,
         ),
       );
     }
