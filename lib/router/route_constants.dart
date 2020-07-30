@@ -1,0 +1,14 @@
+const String homeRoute = "home";
+const String aboutRoute = "about";
+const String loginRoute = "login";
+const String settingsRoute = "settings";
+const String splashScreen = 'splash';
+const String google = 'google';
+const String youtube = 'youtube';
+const String facebook = 'facebook';
+const String wikipedia = 'wikipedia';
+const String twitter = 'twitter';
+const String udemy = 'udemy';
+const String amazon = 'amazon';
+const String linkedin = 'linkedin';
+const String instagram = 'instagram';

@@ -1,0 +1,23 @@
+{
+"welcome": "Welcome to Hassab Labs",
+  "home_page": "Home",
+
+  "email": "Email",
+"display": "Display List",
+  "hide": "Hide List",
+  "about_hassab": "About Hassab",
+"browser": "Popular Browser",
+  "change_language": "Language",
+  "hassab_labs": "Hassab Labs",
+  "login": "Login",
+  "results": "Results",
+  "branches": "Branches",
+  "home_visit": "Home Visit",
+  "library": "Tests Library",
+  "list": "Checklist",
+  "advice": "Healthy Advices",
+  "offers": "Offers",
+  "opinion": "Your opinion",
+  "login_button_text": "Login",
+  "password": "Password"
+}
