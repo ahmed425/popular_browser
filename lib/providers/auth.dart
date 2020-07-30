@@ -4,7 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:http/http.dart' as http;
 
 class Auth with ChangeNotifier {
-  final String myKey = 'AIzaSyALv7hZQYwXCLLKxR1T1WgVZUlEeHPYCTw';
+  final String myKey = 'AIzaSyCyuO63tZ6DXELQCDEE6LWTn-yQJQ9RkZc';
 
   Future<String> _authenticate(
       String email, String password, String urlSegment) async {

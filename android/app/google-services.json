@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "1094498794605",
+    "firebase_url": "https://popularbrowser-943415897.firebaseio.com",
+    "project_id": "popularbrowser-943415897",
+    "storage_bucket": "popularbrowser-943415897.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1094498794605:android:e2859f947b566e7ff2d364",
+        "android_client_info": {
+          "package_name": "com.example.popularbrowser"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1094498794605-358utuvav0pd9qjv2se59dncv3tgf7tt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCyuO63tZ6DXELQCDEE6LWTn-yQJQ9RkZc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1094498794605-358utuvav0pd9qjv2se59dncv3tgf7tt.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

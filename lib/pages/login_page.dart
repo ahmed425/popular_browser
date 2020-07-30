@@ -24,6 +24,8 @@ class _LoginPageState extends State<LoginPage> {
   };
   var _passwordController;
   Future<void> _submit() async {
+    print("jgvgvghvgfg");
+    print(_authData['email']);
     if (!_formKey.currentState.validate()) {
       // Invalid!
       print("formKey.currentState IS Invalid");
@@ -34,24 +36,25 @@ class _LoginPageState extends State<LoginPage> {
     setState(() {
       _submitLoading = true;
     });
-    if (_authMode == AuthMode.Login) {
-      try {
-        await Provider.of<Auth>(context, listen: false).login(
-          _authData['email'],
-          _authData['password'],
-        );
-
-//        Provider.of<UsersProvider>(context, listen: false)
-//            .setUserData(email: _authData['email'], userId: localId);
-
-        Navigator.pushReplacement(
-            context, MaterialPageRoute(builder: (context) => HomePage()));
-      } catch (error) {
-//        _showErrorDialog(errorMessage);
-      }
+    print(_authData['email'].toString());
+    try {
+      await Provider.of<Auth>(context, listen: false)
+          .login(
+            _authData['email'],
+            _authData['password'],
+          )
+          .then((_) => _submitLoading = false);
+      Navigator.push(
+          context, MaterialPageRoute(builder: (context) => HomePage()));
+    } catch (error) {
+      print('error');
     }
-  }
+//      catch (error) {
+//        _showErrorDialog(errorMessage);
 
+//    }
+//  }
+  }
 //        await auth.resetPassword(_authData['email']);
 
 //        Flushbar(
@@ -93,7 +96,7 @@ class _LoginPageState extends State<LoginPage> {
                     MediaQuery.of(context).padding.top) *
                 0.28,
             child: Image.asset(
-              'assets/icons/logo_home.png',
+              'assets/icons/mylogo.png',
             ),
           ),
           Container(
@@ -133,7 +136,7 @@ class _LoginPageState extends State<LoginPage> {
 //                              )
 //                            ]),
                         child: Form(
-//                                  key: _formKey,
+                      key: _formKey,
                       child: Padding(
                         padding: const EdgeInsets.symmetric(
                             vertical: 20, horizontal: 0),
@@ -180,7 +183,7 @@ class _LoginPageState extends State<LoginPage> {
                                   return null;
                                 },
                                 onSaved: (value) {
-//                                              _authData['email'] = value;
+                                  _authData['email'] = value;
                                 },
                               ),
                             ),
@@ -206,7 +209,7 @@ class _LoginPageState extends State<LoginPage> {
                                 obscureText: true,
                                 controller: _passwordController,
                                 onSaved: (value) {
-//                                              _authData['password'] = value;
+                                  _authData['password'] = value;
                                 },
                                 validator: (value) {
                                   bool spaceRex =
@@ -228,7 +231,12 @@ class _LoginPageState extends State<LoginPage> {
                             ),
                             InkWell(
                               onTap: () {
-                                print("Welcome to Hassab Labs");
+                                _submitLoading = true;
+                                print(_authData['email']);
+//                               if (!_submitLoading) {
+                                _submit();
+//                                }
+//                                print("Welcome to Hassab Labs");
                               },
                               child: Container(
                                 height: 45,
@@ -241,19 +249,18 @@ class _LoginPageState extends State<LoginPage> {
                                   color: gridViewItemsColor,
                                 ),
                                 child: Center(
-                                    child:
-//                                                _submitLoading == false
-                                        Text(
-                                  getTranslated(context, 'login_button_text'),
+                                  child: _submitLoading == false
+                                      ? Text(
+                                          getTranslated(
+                                              context, 'login_button_text'),
 //                                                            : 'إرسال رابط تغيير كلمة المرور',
-                                  style: buttonTextStyle,
-                                )
-//                                                    : CircularProgressIndicator(
-//                                                        backgroundColor:
-//                                                            Colors.white,white
-                                    ),
+                                          style: buttonTextStyle,
+                                        )
+                                      : CircularProgressIndicator(
+                                          backgroundColor: Colors.white,
+                                        ),
+                                ),
                               ),
-                            ),
 //                            Center(
 //                                child:
 ////                                                _submitLoading == false
@@ -277,6 +284,7 @@ class _LoginPageState extends State<LoginPage> {
 ////                                                        backgroundColor:
 ////                                                            Colors.white,white
 //                                ),
+                            ),
                           ],
                         ),
                       ),
@@ -619,7 +627,7 @@ class _LoginPageState extends State<LoginPage> {
                           obscureText: true,
                           controller: _passwordController,
                           onSaved: (value) {
-//                                              _authData['password'] = value;
+                            _authData['password'] = value;
                           },
                           validator: (value) {
                             bool spaceRex =
@@ -640,11 +648,7 @@ class _LoginPageState extends State<LoginPage> {
                             0.03,
                       ),
                       InkWell(
-                        onTap: () {
-                          if (!_submitLoading) {
-                            _submit();
-                          }
-                        },
+                        onTap: () {},
                         child: Container(
 //                        height: 45,
                           margin: const EdgeInsets.symmetric(

@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:popularbrowser/providers/auth.dart';
 
 //import 'package:popularbrowser/constants.dart';
 import 'package:popularbrowser/router/custom_router.dart';
 import 'package:popularbrowser/router/route_constants.dart';
+import 'package:provider/provider.dart';
 //import 'package:popularbrowser/splash_screen.dart';
 
 import 'localization/demo_localization.dart';
@@ -43,39 +45,52 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     if (this._locale == null) {
-      return Container(
-        child: Center(
-          child: CircularProgressIndicator(
-              valueColor: AlwaysStoppedAnimation<Color>(Colors.blue[800])),
-        ),
-      );
+      return MultiProvider(
+          providers: [
+            ChangeNotifierProvider.value(
+              value: Auth(),
+            ),
+          ],
+          child: Container(
+            child: Center(
+              child: CircularProgressIndicator(
+                  valueColor: AlwaysStoppedAnimation<Color>(Colors.blue[800])),
+            ),
+          ));
     } else {
-      return MaterialApp(
-        debugShowCheckedModeBanner: false,
-        title: 'متصفح أشهر المواقع',
-        theme: ThemeData(),
-        locale: _locale,
-        supportedLocales: [
-          Locale("en", "US"),
-          Locale("ar", "EG"),
+      return MultiProvider(
+        providers: [
+          ChangeNotifierProvider.value(
+            value: Auth(),
+          ),
         ],
-        localizationsDelegates: [
-          DemoLocalization.delegate,
-          GlobalMaterialLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate,
-          GlobalCupertinoLocalizations.delegate,
-        ],
-        localeResolutionCallback: (locale, supportedLocales) {
-          for (var supportedLocale in supportedLocales) {
-            if (supportedLocale.languageCode == locale.languageCode &&
-                supportedLocale.countryCode == locale.countryCode) {
-              return supportedLocale;
+        child: MaterialApp(
+          debugShowCheckedModeBanner: false,
+          title: 'متصفح أشهر المواقع',
+          theme: ThemeData(),
+          locale: _locale,
+          supportedLocales: [
+            Locale("en", "US"),
+            Locale("ar", "EG"),
+          ],
+          localizationsDelegates: [
+            DemoLocalization.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+          ],
+          localeResolutionCallback: (locale, supportedLocales) {
+            for (var supportedLocale in supportedLocales) {
+              if (supportedLocale.languageCode == locale.languageCode &&
+                  supportedLocale.countryCode == locale.countryCode) {
+                return supportedLocale;
+              }
             }
-          }
-          return supportedLocales.first;
-        },
-        onGenerateRoute: CustomRouter.generatedRoute,
-        initialRoute: homeRoute,
+            return supportedLocales.first;
+          },
+          onGenerateRoute: CustomRouter.generatedRoute,
+          initialRoute: loginRoute,
+        ),
       );
     }
   }
