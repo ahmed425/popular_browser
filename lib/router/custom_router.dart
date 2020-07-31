@@ -9,6 +9,7 @@ import 'package:popularbrowser/pages/linkedin.dart';
 import 'package:popularbrowser/pages/login_page.dart';
 import 'package:popularbrowser/pages/not_found_page.dart';
 import 'package:popularbrowser/pages/settings_page.dart';
+import 'package:popularbrowser/pages/signup.dart';
 import 'package:popularbrowser/pages/twitter.dart';
 import 'package:popularbrowser/pages/udemy.dart';
 import 'package:popularbrowser/pages/wikipedia.dart';
@@ -48,7 +49,8 @@ class CustomRouter {
         return MaterialPageRoute(builder: (_) => Linkedin());
       case instagram:
         return MaterialPageRoute(builder: (_) => Instagram());
-
+      case signup:
+        return MaterialPageRoute(builder: (_) => SignupPage());
       default:
         return MaterialPageRoute(builder: (_) => NotFoundPage());
     }

@@ -12,3 +12,4 @@ const String udemy = 'udemy';
 const String amazon = 'amazon';
 const String linkedin = 'linkedin';
 const String instagram = 'instagram';
+const String signup = 'signup';
