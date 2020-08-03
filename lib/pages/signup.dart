@@ -301,9 +301,9 @@ class _SignupPageState extends State<SignupPage> {
                               if (spaceRex ||
                                   value.length == 0 ||
                                   value == null) {
-                                return 'ادخل البريد الإلكتروني من فضلك';
+                                return getTranslated(context, 'mail_please');
                               } else {
-                                return 'البريد الإلكتروني غير صالح';
+                                return getTranslated(context, 'invalid_email');
                               }
                             }
                             return null;
@@ -341,7 +341,7 @@ class _SignupPageState extends State<SignupPage> {
                             if (spaceRex ||
                                 value.length == 0 ||
                                 value == null) {
-                              return 'ادخل  كلمة المرور من فضلك';
+                              return getTranslated(context, 'password_please');
                             }
                             return null;
                           },

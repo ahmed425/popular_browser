@@ -221,7 +221,7 @@ class _LoginPageState extends State<LoginPage> {
                             FlatButton(
                               textColor: Colors.white,
                               child: Text(
-                                'إنشاء حساب جديد',
+                                getTranslated(context, 'new_account'),
                                 style: buttonTextStyle,
                               ),
                               onPressed: () {
@@ -304,9 +304,9 @@ class _LoginPageState extends State<LoginPage> {
                     if (!emailValid) {
                       bool spaceRex = new RegExp(r"^\\s+$").hasMatch(value);
                       if (spaceRex || value.length == 0 || value == null) {
-                        return 'ادخل البريد الإلكتروني من فضلك';
+                        return getTranslated(context, 'mail_please');
                       } else {
-                        return 'البريد الإلكتروني غير صالح';
+                        return getTranslated(context, 'invalid_email');
                       }
                     }
                     return null;
@@ -350,7 +350,7 @@ class _LoginPageState extends State<LoginPage> {
                   validator: (value) {
                     bool spaceRex = new RegExp(r"^\\s+$").hasMatch(value);
                     if (spaceRex || value.length == 0 || value == null) {
-                      return 'ادخل  كلمة المرور من فضلك';
+                      return getTranslated(context, 'password_please');
                     }
                     return null;
                   },
@@ -412,7 +412,7 @@ class _LoginPageState extends State<LoginPage> {
                 child: FlatButton(
                   textColor: Colors.white,
                   child: Text(
-                    'إنشاء حساب جديد',
+                    getTranslated(context, 'new_account'),
                     style: buttonTextStyle,
                   ),
                   onPressed: () {

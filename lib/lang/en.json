@@ -1,9 +1,13 @@
 {
-"welcome": "Welcome to Hassab Labs",
+"welcome": "Welcome to Popular Browser",
   "home_page": "Home",
 
   "email": "Email",
 "display": "Display List",
+  "mail_please": "Please enter your email",
+  "invalid_email": "Invalid Email",
+  "password_please": "Please enter your password",
+  "new_account": "Create new account",
   "hide": "Hide List",
   "about_hassab": "About Hassab",
   "signup": "Signup",
